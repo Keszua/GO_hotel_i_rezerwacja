@@ -4,8 +4,6 @@ import (
 	"net/http"
 
 	"example.com/udemy/cmd/pkg/render"
-	//"example.com/cmd/pkg/render"
-	//"example.com/udemy/cmd/pkg/render"
 )
 
 // Home is the home page handler
