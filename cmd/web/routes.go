@@ -5,14 +5,14 @@ import (
 
 	"example.com/udemy/cmd/pkg/config"
 	"example.com/udemy/cmd/pkg/handlers"
-	"github.com/bmizerany/pat"
+	"github.com/go-chi/chi/v5"
 )
 
 func routes(app *config.AppConfig) http.Handler {
-	mux := pat.New()
+	mux := chi.NewRouter()
 
-	mux.Get("/", http.HandlerFunc(handlers.Repo.Home))
-	mux.Get("/", http.HandlerFunc(handlers.Repo.About))
+	mux.Get("/", handlers.Repo.Home)
+	mux.Get("/about", handlers.Repo.About)
 
 	return mux
 }
