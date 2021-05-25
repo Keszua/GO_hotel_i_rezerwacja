@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"example.com/udemy/cmd/pkg/config"
-	"example.com/udemy/cmd/pkg/models"
-	"example.com/udemy/cmd/pkg/render"
+	"example.com/udemy/pkg/config"
+	"example.com/udemy/pkg/models"
+	"example.com/udemy/pkg/render"
 )
 
 // Repo the repository by the handlers

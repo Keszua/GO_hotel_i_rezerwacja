@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"example.com/udemy/cmd/pkg/config"
-	"example.com/udemy/cmd/pkg/handlers"
-	"example.com/udemy/cmd/pkg/render"
+	"example.com/udemy/pkg/config"
+	"example.com/udemy/pkg/handlers"
+	"example.com/udemy/pkg/render"
 	"github.com/alexedwards/scs/v2"
 )
 

@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"example.com/udemy/cmd/pkg/config"
-	"example.com/udemy/cmd/pkg/models"
+	"example.com/udemy/pkg/config"
+	"example.com/udemy/pkg/models"
 )
 
 var functions = template.FuncMap{}

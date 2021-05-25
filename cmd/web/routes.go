@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"example.com/udemy/cmd/pkg/config"
-	"example.com/udemy/cmd/pkg/handlers"
+	"example.com/udemy/pkg/config"
+	"example.com/udemy/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
