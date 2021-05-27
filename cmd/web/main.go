@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"example.com/udemy/pkg/config"
-	"example.com/udemy/pkg/handlers"
-	"example.com/udemy/pkg/render"
 	"github.com/alexedwards/scs/v2"
+	"github.com/keszua/hotel/pkg/config"
+	"github.com/keszua/hotel/pkg/handlers"
+	"github.com/keszua/hotel/pkg/render"
 )
 
 const portNumber = ":8080"

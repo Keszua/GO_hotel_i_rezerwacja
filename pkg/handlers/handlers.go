@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"example.com/udemy/pkg/config"
-	"example.com/udemy/pkg/models"
-	"example.com/udemy/pkg/render"
+	"github.com/keszua/hotel/pkg/config"
+	"github.com/keszua/hotel/pkg/models"
+	"github.com/keszua/hotel/pkg/render"
 )
 
 // Repo the repository by the handlers

@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"example.com/udemy/pkg/config"
-	"example.com/udemy/pkg/models"
+	"github.com/keszua/hotel/pkg/config"
+	"github.com/keszua/hotel/pkg/models"
 )
 
 var functions = template.FuncMap{}

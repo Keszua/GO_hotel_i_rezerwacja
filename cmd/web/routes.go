@@ -3,10 +3,10 @@ package main
 import (
 	"net/http"
 
-	"example.com/udemy/pkg/config"
-	"example.com/udemy/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/keszua/hotel/pkg/config"
+	"github.com/keszua/hotel/pkg/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {
