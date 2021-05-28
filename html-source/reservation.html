@@ -6,11 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Hello, world!</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker-bs4.min.css">
 
     <style>
         .my-footer {
@@ -20,6 +22,10 @@
             padding: 1em;
             color: #FFF;
             font-size: 15px;
+        }
+
+        .redText {
+            color: #F00;
         }
     </style>
 
@@ -69,37 +75,24 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-3"></div>  <!-- sztuczka na wycentrowanie formularza -->
+            <div class="col-md-3"></div> <!-- sztuczka na wycentrowanie formularza -->
             <div class="col-md-6">
                 <h1 class="mt-5">Reservaiton</h1>
 
 
                 <h3 class="mt-5">Sarch for Availability</h3>
 
-                <form action="reservation.html" method="GET">
+                <form action="reservation.html" method="GET" novalidate class="needs-validation">
 
-                    <div class="row">
+                    <div class="row" id="reservation-dates">
+                        Od
                         <div class="col">
-                            <div class="form-group">
-                                <label for="start_date" class="form-label">Starting Date</label>
-                                <input required type="date" class="form-control" id="start_date" name="start_date" aria-describedby="startDateHelp">
-                                <small id="emailHelp" class="form-text">Enter you starting date in the form of YYYYY-MM-DD.</small>
-                            </div>
+                            <input required class="form-control" type="text" name="start" placeholder="Darta przyjazdu">
                         </div>
-
+                        do
                         <div class="col">
-
-                            <div class="form-group">
-                                <label for="start_date" class="form-label">Ending Date</label>
-                                <input required type="date" class="form-control" id="end_date" name="end_date" aria-describedby="endDateHelp">
-                                <small id="emailHelp" class="form-text">Enter you ending date in the form of YYYYY-MM-DD.</small>
-                            </div>
+                            <input required class="form-control" type="text" name="end" placeholder="Darta odjazdu">
                         </div>
-                    </div>
-
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Search Availability</button>
@@ -108,6 +101,14 @@
             </div>
         </div>
 
+
+
+        <div class="row">
+            <p id="myParagraph">This is some text. </p>
+            <p>
+                <button id="collorButon">Click me</button>
+            </p>
+        </div>
 
     </div>
 
@@ -141,6 +142,48 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
+
+    <script>
+        document.getElementById("collorButon").addEventListener("click", function () {
+            let myEl = document.getElementById("myParagraph");
+            if (myEl.classList.contains("redText")) {
+                myEl.classList.remove("redText");
+            } else {
+                myEl.classList.add("redText");
+            }
+        });
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            let forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+        const elem = document.getElementById('reservation-dates');
+        const rangepicker = new DateRangePicker(elem, {
+            // ...options
+            format: "dd-mm-yyyy"
+        });
+
+    </script>
+
 </body>
 
 </html>
