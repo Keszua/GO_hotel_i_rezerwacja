@@ -28,7 +28,6 @@
         .notie-container {
             box-shadow: none;
         }
-
     </style>
 
 </head>
@@ -145,10 +144,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
     <script src="https://unpkg.com/notie"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+
         document.getElementById("collorButon").addEventListener("click", function () {
-            notify("This is my message", "success");
+            notifyModal("Title", '<b>H</b><em>ello</em>', "success", "My Text for the button")
         });
 
         // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -185,6 +186,15 @@
                 stay: false, //Boolean, // optional, default = false
                 time: 3, //Number, // optional, default = 3, minimum = 1,
                 position: "top", //String // optional, default = 'top', enum: ['top', 'bottom']
+            })
+        }
+
+        function notifyModal(title = "Title", text = "Click to continue", icon = 'success', confirmButtonText = 'Cool') {
+            Swal.fire({
+                title,
+                html: text,
+                icon,
+                confirmButtonText,
             })
         }
 
