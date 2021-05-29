@@ -13,6 +13,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker-bs4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
 
     <style>
         .my-footer {
@@ -24,9 +25,10 @@
             font-size: 15px;
         }
 
-        .redText {
-            color: #F00;
+        .notie-container {
+            box-shadow: none;
         }
+
     </style>
 
 </head>
@@ -142,15 +144,11 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://unpkg.com/notie"></script>
 
     <script>
         document.getElementById("collorButon").addEventListener("click", function () {
-            let myEl = document.getElementById("myParagraph");
-            if (myEl.classList.contains("redText")) {
-                myEl.classList.remove("redText");
-            } else {
-                myEl.classList.add("redText");
-            }
+            notify("This is my message", "success");
         });
 
         // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -179,6 +177,16 @@
             // ...options
             format: "dd-mm-yyyy"
         });
+
+        function notify(msg, msgType) {
+            notie.alert({
+                type: msgType, //Number | String, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+                text: msg,
+                stay: false, //Boolean, // optional, default = false
+                time: 3, //Number, // optional, default = 3, minimum = 1,
+                position: "top", //String // optional, default = 'top', enum: ['top', 'bottom']
+            })
+        }
 
     </script>
 
