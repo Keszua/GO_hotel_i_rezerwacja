@@ -79,57 +79,27 @@
             <div class="col-md-6">
                 <h1 class="mt-5">Reservaiton</h1>
 
-
                 <h3 class="mt-5">Sarch for Availability</h3>
 
                 <form action="reservation.html" method="GET" novalidate class="needs-validation">
 
-                    <div class="row">
+                    <div class="row" id="reservation-dates">
+                        Od
                         <div class="col">
-                            <div class="form-group">
-                                <label for="start_date" class="form-label">Starting Date</label>
-                                <input required type="date" class="form-control" id="start_date" name="start_date" aria-describedby="startDateHelp">
-                                <small id="emailHelp" class="form-text">Enter you starting date in the form of YYYYY-MM-DD.</small>
-                            </div>
+                            <input required class="form-control" type="text" name="start" placeholder="Darta przyjazdu">
                         </div>
-
+                        do
                         <div class="col">
-
-                            <div class="form-group">
-                                <label for="start_date" class="form-label">Ending Date</label>
-                                <input required type="date" class="form-control" id="end_date" name="end_date" aria-describedby="endDateHelp">
-                                <small id="emailHelp" class="form-text">Enter you ending date in the form of YYYYY-MM-DD.</small>
-                            </div>
+                            <input required class="form-control" type="text" name="end" placeholder="Darta odjazdu">
                         </div>
                     </div>
 
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-
+                    <hr>
                     <button type="submit" class="btn btn-primary">Search Availability</button>
                 </form>
 
             </div>
         </div>
-
-        <div class="row">
-            Tutaj popracować na wyrównaniem
-            skończyłem na 50 filmie  8:20
-            <div class="col">
-                <div class="row" id="reservation-dates">
-                    <div class="col">
-                        <input class="form-control" type="text" name="start">
-                    </div>
-                    <span>to</span>
-                    <div class="col">
-                        <input class="form-control" type="text" name="end">
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <div class="row">
             <p id="myParagraph">This is some text. </p>
@@ -207,6 +177,7 @@
         const elem = document.getElementById('reservation-dates');
         const rangepicker = new DateRangePicker(elem, {
             // ...options
+            format: "dd-mm-yyyy"
         });
 
     </script>
