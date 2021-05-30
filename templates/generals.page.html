@@ -1,0 +1,80 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <!-- <div class="col"> -->
+                <img src="/static/images/Ant1.jpg" class="img-fluid img-thumbnail mx-auto d-block room-image" alt="room image">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-4">Welcome to Fort Smythe Bed and Breakfast </h1>
+                <p>
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                    You home away from home, set on the majestic of the Atlantic Ocean, this will be a vacation to remember.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <a id="check-availability-button" href="#!" class="btn btn-success">Check Availabilityr</a>  <!-- #! - ma pozostać na tej stronie -->
+        </div>
+    </div>
+
+{{end}}
+
+{{define "js"}}
+
+    <script>
+
+        document.getElementById("check-availability-button").addEventListener("click", function () {
+            // attention.toast({
+            //     msg: "Great! Click to continue",
+            //     icon: "success",
+            // })
+            let html = `
+                <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row" id="reservation-dates-modal">
+                                <div class="col">
+                                    <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Darta przyjazdu">
+                                </div>
+                                <br>
+                                <div class="col">
+                                    <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Darta odjazdu">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                `
+
+            attention.custom({
+                msg: html,
+                title: "Tremin rezerwacji",
+            })
+
+        });
+
+    </script>
+
+{{end}}
