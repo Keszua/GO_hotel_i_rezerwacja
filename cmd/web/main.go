@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/keszua/hotel/pkg/config"
-	"github.com/keszua/hotel/pkg/handlers"
-	"github.com/keszua/hotel/pkg/render"
+	"github.com/keszua/hotel/internal/config"
+	"github.com/keszua/hotel/internal/handlers"
+	"github.com/keszua/hotel/internal/render"
 )
 
 const portNumber = ":8080"
