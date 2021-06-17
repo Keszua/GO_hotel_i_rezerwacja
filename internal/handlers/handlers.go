@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/keszua/hotel/pkg/config"
-	"github.com/keszua/hotel/pkg/models"
-	"github.com/keszua/hotel/pkg/render"
+	"github.com/keszua/hotel/internal/config"
+	"github.com/keszua/hotel/internal/models"
+	"github.com/keszua/hotel/internal/render"
 )
 
 // Repo the repository by the handlers
