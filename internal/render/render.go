@@ -17,18 +17,18 @@ var functions = template.FuncMap{}
 
 var app *config.AppConfig
 
-//NewTemplates sets the config from the template package
+// NewTemplates sets the config for the template package
 func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-//AddDefaultData adds data for all templates
+// AddDefaultData adds data for all templates
 func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
 	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
-// RenderTemplate renders templates using html/template
+// RenderTemplate renders a template
 func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
@@ -52,19 +52,12 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *mod
 
 	_, err := buf.WriteTo(w)
 	if err != nil {
-		fmt.Println("Error writing template to browser", err)
+		fmt.Println("error writing template to browser", err)
 	}
 
-	// parsedTemplate, _ := template.ParseFiles("./templates/" + tmpl)
-
-	// err = parsedTemplate.Execute(w, nil)
-	// if err != nil {
-	// 	fmt.Println("error parsing template:", err)
-	// 	return
-	// }
 }
 
-//CreateTemplateCache creates a template cache as a map
+// CreateTemplateCache creates a template cache as a map
 func CreateTemplateCache() (map[string]*template.Template, error) {
 
 	myCache := map[string]*template.Template{}
@@ -79,20 +72,17 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 
 		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
-			fmt.Println("AAA")
 			return myCache, err
 		}
 
 		matches, err := filepath.Glob("./templates/*.layout.html")
 		if err != nil {
-			fmt.Println("BBB")
 			return myCache, err
 		}
 
 		if len(matches) > 0 {
 			ts, err = ts.ParseGlob("./templates/*.layout.html")
 			if err != nil {
-				fmt.Println("CCC")
 				return myCache, err
 			}
 		}
