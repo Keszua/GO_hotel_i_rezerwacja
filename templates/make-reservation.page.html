@@ -9,6 +9,9 @@
 
                 <h1 class="text-center mt-4">Make reservation</h1>
 
+
+                {{$res := index .Data "reservation"}}
+
                 <form action="" method="post" class="" novalidate>
                     <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
 
@@ -19,9 +22,9 @@
                         {{end}}
                         <input class="form-control {{with .Form.Errors.Get "first_name" }} is-invalid  {{end}} "
                             id="first_name" type="text" name="first_name" required autocomplete="off"
-                            value="">
-
+                            value="{{$res.FirstName}}">
                     </div>
+
 
                     <div class="form-group">
                         <label for="last_name">Nazwisko:</label>
@@ -29,7 +32,8 @@
                             <label class="text-danger">{{.}}</label>
                         {{end}}
                         <input class="form-control {{with .Form.Errors.Get "last_name" }} is-invalid  {{end}} "
-                            type="text" name="last_name" id="last_name" required autocomplete="off">
+                            type="text" name="last_name" id="last_name" required autocomplete="off"
+                            value="{{$res.LastName}}">
                     </div>
 
                     <div class="form-group">
@@ -38,7 +42,8 @@
                             <label class="text-danger">{{.}}</label>
                         {{end}}
                         <input class="form-control {{with .Form.Errors.Get "email" }} is-invalid  {{end}} "
-                            type="email" name="email" id="email" required autocomplete="off">
+                            type="email" name="email" id="email" required autocomplete="off"
+                            value="{{$res.Email}}">
                     </div>
 
                     <div class="form-group">
@@ -47,11 +52,13 @@
                             <label class="text-danger">{{.}}</label>
                         {{end}}
                         <input class="form-control {{with .Form.Errors.Get "phone" }} is-invalid  {{end}} "
-                            type="text" name="phone" id="phone" required autocomplete="off">
+                            type="text" name="phone" id="phone" required autocomplete="off"
+                            value="{{$res.Phone}}">
                     </div>
 
+
+                    <br>
                     <div class="col text-center">
-                        <br>
                         <!-- <input type="submit" class="btn btn-primary" value="Wyślij zapytanie"> -->
                         <input type="submit" class="btn btn-primary"> <!-- jakoś wyświetla się bez value -->
                     </div>
