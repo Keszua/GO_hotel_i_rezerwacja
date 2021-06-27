@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"time"
 
@@ -19,9 +20,6 @@ import (
 	"github.com/keszua/hotel/internal/render"
 )
 
-
-
-
 var app config.AppConfig
 var session *scs.SessionManager
 var pathToTemplates = "./../../templates"
@@ -34,6 +32,12 @@ func getRoutes() http.Handler {
 
 	// change this to true when in production
 	app.InProduction = false
+
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	app.InfoLog = infoLog
+
+	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+	app.ErrorLog = errorLog
 
 	// set up the session
 	session = scs.New()
@@ -82,7 +86,6 @@ func getRoutes() http.Handler {
 
 	return mux
 }
-
 
 // NoSurf is the CSRF protection to POST requests
 func NoSurf(next http.Handler) http.Handler {
